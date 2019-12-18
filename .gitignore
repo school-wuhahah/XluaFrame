@@ -1,7 +1,8 @@
+.vs
+.vscode
 Library
 Temp
 Logs
-.vscode
 *.csproj
 *.sln
 *.pidb

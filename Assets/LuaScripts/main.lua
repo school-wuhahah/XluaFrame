@@ -6,4 +6,13 @@ local function main()
     xlua.print_func_ref_by_csharp()
 end
 
-main()
+local function logtraceback(msg)
+    local tracemsg = debug.traceback()
+    print("error: " .. tostring(msg) .. "\n" .. tracemsg)
+    return msg
+end
+
+local ret, msg = xpcall(main, logtraceback)
+if not ret then
+    error("\n" .. "lua error msg:" .. "\n" .. "\t" .. msg)
+end
