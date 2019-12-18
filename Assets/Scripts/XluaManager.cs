@@ -48,7 +48,7 @@ public class XluaManager : MonoSingleton<XluaManager>
         filepath = filepath.Replace(".", "/") + ".lua";
 #if UNITY_EDITOR
         filepath = Path.Combine(Application.dataPath, luafloder, filepath);
-        return null;
+        return FileOperate.ReadFileBytes(filepath);
 #endif
     }
 
