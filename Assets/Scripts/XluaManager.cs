@@ -9,31 +9,32 @@ public class XluaManager : MonoSingleton<XluaManager>
 {
     private const string luafloder = "LuaScripts";
     private const string luamain = "main";
-    private LuaEnv env;
+
+    public LuaEnv Env { get; private set; }
 
     protected override void Init()
     {
-        env = new LuaEnv();
-        if (env != null)
+        Env = new LuaEnv();
+        if (Env != null)
         {
-            env.AddLoader(LuaScriptsLoader);
+            Env.AddLoader(LuaScriptsLoader);
         }
     }
 
     public void OnInit()
     {
-        string strcontent = string.Format(string.Format("require('{0}')", luamain));
+        string strcontent = string.Format("require('{0}')", luamain);
         LuaEnvDoString(strcontent);       
     }
 
 
     private void LuaEnvDoString(string strcontent)
     {
-        if (env != null)
+        if (Env != null)
         {
             try
             {
-                env.DoString(strcontent);
+                Env.DoString(strcontent);
             }
             catch (Exception ex)
             {
@@ -54,20 +55,20 @@ public class XluaManager : MonoSingleton<XluaManager>
 
     private void Update()
     {
-        if (env != null)
+        if (Env != null)
         {
-            env.Tick();
+            Env.Tick();
         }
     }
 
     public override void Dispose()
     {
-        if (env != null)
+        if (Env != null)
         {
             try
             {
-                env.Dispose();
-                env = null;
+                Env.Dispose();
+                Env = null;
             }
             catch (Exception ex)
             {
