@@ -8,6 +8,7 @@ using XLua;
 public class XluaManager : MonoSingleton<XluaManager>
 {
     private const string luafloder = "LuaScripts";
+    private const string appfwstr = "appframework.";
     private const string luamain = "main";
 
     public LuaEnv Env { get; private set; }
@@ -26,7 +27,6 @@ public class XluaManager : MonoSingleton<XluaManager>
         string strcontent = string.Format("require('{0}')", luamain);
         LuaEnvDoString(strcontent);       
     }
-
 
     private void LuaEnvDoString(string strcontent)
     {
@@ -59,6 +59,12 @@ public class XluaManager : MonoSingleton<XluaManager>
         {
             Env.Tick();
         }
+    }
+
+    public byte[] GetLoadStringBytesByPath(string fileName)
+    {
+        fileName = string.Concat(appfwstr, fileName);
+        return LuaScriptsLoader(ref fileName);
     }
 
     public override void Dispose()

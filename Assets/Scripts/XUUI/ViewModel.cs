@@ -14,7 +14,6 @@ namespace XUUI
     public class ExportAttribute : Attribute
     {
     }
-
     public delegate void ContextCreator(LuaTable options, out Func<GameObject, Action> attach, out Action<string, bool> reload);
 
     public class Context : IDisposable
@@ -76,6 +75,11 @@ namespace XUUI
             return luaEnv.LoadString<Func<LuaTable>>(script);
         }
 
+        public Func<LuaTable> Compile(byte[] scriptbytes)
+        {
+            return luaEnv.LoadString<Func<LuaTable>>(scriptbytes);
+        }
+
         public Context(LuaEnv env = null)
         {
             initLua(env);
@@ -86,6 +90,12 @@ namespace XUUI
         {
             initLua(env);
             init(Compile(script)());
+        }
+
+        public Context(byte[] scriptbytes, LuaEnv env = null)
+        {
+            initLua(env);
+            init(Compile(scriptbytes)());
         }
 
         public Context(Func<LuaTable> compiled, LuaEnv env = null)

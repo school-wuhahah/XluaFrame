@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XLua;
 using XUUI;
 
 public class App : MonoBehaviour
@@ -16,8 +18,7 @@ public class App : MonoBehaviour
             Debug.LogErrorFormat("Error App args appmodelname is {0} , please input Legal parameters !", appmodelname);
         }
 
-        context = new Context(string.Format("require('{0}')", appmodelname), XluaManager.Instance.Env);
-
+        context = new Context(XluaManager.Instance.GetLoadStringBytesByPath(appmodelname), XluaManager.Instance.Env);
         context.AddCSharpModule(appmodelname, this);
         context.Attach(gameObject);
     }

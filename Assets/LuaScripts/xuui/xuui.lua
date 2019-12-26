@@ -2,6 +2,7 @@ local observeable = require 'xuui.observeable'
 local binding =  require 'xuui.binding'
 
 local _M = {}
+local constappfwstr = "appframework" 
 
 local type, setmetatable = type, setmetatable
 local setfenv = setfenv or function(fn, env)
@@ -31,7 +32,7 @@ local function loadpackage(...)
 end
 
 local function loadmodule(options, exports, app_name, name, do_not_load_data)
-    local func = assert(loadpackage(string.format('%s.%s', app_name, name)), 'can not load module:' .. name)
+    local func = assert(loadpackage(string.format('%s.%s.%s', constappfwstr, app_name, name)), 'can not load module:' .. name)
     setfenv(func, setmetatable({}, {
         __index = function(t, k)
             return _G[k] or exports[k]

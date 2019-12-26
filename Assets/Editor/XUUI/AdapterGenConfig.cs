@@ -22,6 +22,7 @@ namespace XUUI.UGUIAdapter
             typeof(RawInputFieldAdapter),
             typeof(RawDropdownAdapter),
             typeof(RawButtonAdapter),
+
         };
 
         [CSharpCallLua]

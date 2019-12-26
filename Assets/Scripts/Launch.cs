@@ -9,8 +9,8 @@ public class Launch : MonoBehaviour
     void Start()
     {
         XluaManager.Instance.OnInit();
-        App testmyapp = gameObject.AddComponent<App>();
-        testmyapp.appmodelname = @"testmyapp";
+        App app = gameObject.AddComponent<App>();
+        app.appmodelname = "myapp";
     }
 
     // Update is called once per frame

@@ -28,4 +28,30 @@ public class FileOperate
             return null;
         }
     }
+
+    public static string ReadFileText(string filepath)
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(filepath))
+            {
+                return string.Empty;
+            }
+
+            if (!File.Exists(filepath))
+            {
+                return string.Empty;
+            }
+
+            File.SetAttributes(filepath, FileAttributes.Normal);
+            return File.ReadAllText(filepath);
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError(string.Format("ReadFileText failed! path = {0} with err = {1}", filepath, ex.Message));
+            return null;
+        }
+    }
+
+
 }
