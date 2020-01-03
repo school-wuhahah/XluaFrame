@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,8 +10,6 @@ public class Launch : MonoBehaviour
     void Start()
     {
         XluaManager.Instance.OnInit();
-        App app = gameObject.AddComponent<App>();
-        app.appmodelname = "myapp";
     }
 
     // Update is called once per frame
@@ -18,4 +17,5 @@ public class Launch : MonoBehaviour
     {
         
     }
+
 }
