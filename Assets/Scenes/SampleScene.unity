@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1337,7 +1337,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 547393589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e2323ef08520d4d8c00d9d29c295f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 87a0974394e04da4b871b9aabe5de1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BindTo: module2.message
@@ -1634,7 +1634,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 664802233}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d9f17ebfae0ccd42a870d50d7d3f6cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 3094d06bf67a90c4aa8eeea29acd2d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &676465319
@@ -1979,7 +1979,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 790659172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4b71bda2af5d3647bebe093242f7335, type: 3}
+  m_Script: {fileID: 11500000, guid: 172751560b6449b41bb2967ac436cf0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BindTo: module1.select
@@ -2108,7 +2108,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 987185616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de89f2d722af9a4299eb8cf672452b0, type: 3}
+  m_Script: {fileID: 11500000, guid: b58a18c2857364d4f9b3f459b39a2de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BindTo: module1.click
@@ -2236,7 +2236,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1099713181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9831aeaa2c12af428137c98988f7291, type: 3}
+  m_Script: {fileID: 11500000, guid: 33bc11091bbef184f8578d1218fb095c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BindTo: module1.info
@@ -2405,7 +2405,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1254521672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9831aeaa2c12af428137c98988f7291, type: 3}
+  m_Script: {fileID: 11500000, guid: 33bc11091bbef184f8578d1218fb095c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BindTo: module2.info
@@ -3085,7 +3085,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1593823110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4b71bda2af5d3647bebe093242f7335, type: 3}
+  m_Script: {fileID: 11500000, guid: 172751560b6449b41bb2967ac436cf0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BindTo: module2.select
@@ -3522,7 +3522,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1821780770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de89f2d722af9a4299eb8cf672452b0, type: 3}
+  m_Script: {fileID: 11500000, guid: b58a18c2857364d4f9b3f459b39a2de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BindTo: module2.click
@@ -3940,7 +3940,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1974246539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e2323ef08520d4d8c00d9d29c295f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 87a0974394e04da4b871b9aabe5de1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BindTo: module1.name

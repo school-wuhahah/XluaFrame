@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 363316061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e2323ef08520d4d8c00d9d29c295f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 87a0974394e04da4b871b9aabe5de1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BindTo: info.name
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 597971018}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9daee5c7b0878f468adeb6522aebc11, type: 3}
+  m_Script: {fileID: 11500000, guid: dc67ddc4c94a5414ca9b2f35aeb8ee23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scriptName: helloworld
@@ -836,8 +836,9 @@ GameObject:
   - component: {fileID: 2068299379}
   - component: {fileID: 2068299382}
   - component: {fileID: 2068299381}
-  - component: {fileID: 2068299380}
   - component: {fileID: 2068299383}
+  - component: {fileID: 2068299380}
+  - component: {fileID: 2068299384}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -952,6 +953,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de89f2d722af9a4299eb8cf672452b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2068299384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068299378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58a18c2857364d4f9b3f459b39a2de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   BindTo: click
   Target: {fileID: 0}
 --- !u!1 &2074066626
@@ -1041,7 +1054,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2074066626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9831aeaa2c12af428137c98988f7291, type: 3}
+  m_Script: {fileID: 11500000, guid: 33bc11091bbef184f8578d1218fb095c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BindTo: message
