@@ -7,7 +7,6 @@ Logs
 *.sln
 *.pidb
 *.userprefs
-*.meta
 **/*.xcodeproj/*
 !**/*.xcodeproj/project.pbxproj
 !**/*.xcworkspace/contents.xcworkspacedata
