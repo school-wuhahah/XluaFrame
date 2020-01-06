@@ -78,7 +78,9 @@ public static class XluaGenConfig
             {
                 "UnityEngine",
                 "UnityEngine.UI",
-                "App"
+                "Launch",
+                "App",
+                "Asset",
             };
             var unityTypes = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
                               where !(assembly.ManifestModule is System.Reflection.Emit.ModuleBuilder)

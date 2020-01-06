@@ -2,9 +2,8 @@ local breakSocketHandle, debugXpCall = require("LuaDebug")("localhost", 7003)
 
 local function main()
     print("hello xluaFrame ...")
-    local canvasobj = CS.UnityEngine.GameObject.Find("Canvas")
-    local app = canvasobj:AddComponent(typeof(CS.App))
-    app.appmodelname = "myapp"
+    local simpleTest = require("SimpleTest")
+    simpleTest:init()
 end
 
 local function logtraceback(msg)
