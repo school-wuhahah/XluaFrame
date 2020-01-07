@@ -66,6 +66,18 @@ namespace XUUI.UGUIAdapter
             return null;
         }
 
+        public void AddBinding(Binding binding)
+        {
+            if (Bindings == null)
+            {
+                Bindings = new List<Binding>();
+            }
+            if (binding.Component != null)
+            {
+                Bindings.Add(binding);
+            }
+        }
+
         public object[][] GetAdapters()
         {
             if (cacheAdapters == null)

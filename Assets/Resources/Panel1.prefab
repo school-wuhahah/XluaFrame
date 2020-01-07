@@ -160,7 +160,6 @@ GameObject:
   - component: {fileID: 6385902350554718486}
   - component: {fileID: 6385902350554718504}
   - component: {fileID: 6385902350554718487}
-  - component: {fileID: 6385902350554718505}
   m_Layer: 5
   m_Name: Tip
   m_TagString: Untagged
@@ -227,20 +226,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: module1
---- !u!114 &6385902350554718505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6385902350554718485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33bc11091bbef184f8578d1218fb095c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BindTo: module1.info
-  Target: {fileID: 0}
 --- !u!1 &6385902350667448942
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +315,6 @@ GameObject:
   - component: {fileID: 6385902350753969927}
   - component: {fileID: 6385902350753969926}
   - component: {fileID: 6385902350753969925}
-  - component: {fileID: 6385902350753969944}
   m_Layer: 5
   m_Name: InputField
   m_TagString: Untagged
@@ -454,20 +438,6 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
---- !u!114 &6385902350753969944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6385902350753969923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87a0974394e04da4b871b9aabe5de1d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BindTo: module1.name
-  Target: {fileID: 0}
 --- !u!1 &6385902350771639179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,7 +1292,6 @@ GameObject:
   - component: {fileID: 6385902351986616924}
   - component: {fileID: 6385902351986616923}
   - component: {fileID: 6385902351986616922}
-  - component: {fileID: 6385902351986616925}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1425,20 +1394,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6385902351986616925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6385902351986616920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b58a18c2857364d4f9b3f459b39a2de8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BindTo: module1.click
-  Target: {fileID: 0}
 --- !u!1 &6385902352079282475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,7 +1533,6 @@ GameObject:
   - component: {fileID: 6385902352205458400}
   - component: {fileID: 6385902352205458415}
   - component: {fileID: 6385902352205458414}
-  - component: {fileID: 6385902352205458401}
   m_Layer: 5
   m_Name: Dropdown
   m_TagString: Untagged
@@ -1697,20 +1651,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6385902352205458401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6385902352205458412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172751560b6449b41bb2967ac436cf0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BindTo: module1.select
-  Target: {fileID: 0}
 --- !u!1 &6385902352303677870
 GameObject:
   m_ObjectHideFlags: 0

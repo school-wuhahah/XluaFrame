@@ -7,13 +7,9 @@ using UnityEngine.UI;
 
 public class Launch : MonoBehaviour
 {
-    public Canvas canvas;
     // Start is called before the first frame update
     void Start()
     {
-        
-        //canvas.worldCamera
-        //canvas.sortingLayerID
         XluaManager.Instance.OnInit();
     }
 

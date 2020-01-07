@@ -18,6 +18,19 @@ SortLayerPriority = {
     --Count = 100
 }
 
+ComponentType = CS.XUUI.UGUIAdapter.ComponentType
+
+Binding = CS.XUUI.UGUIAdapter.Binding
+
+CreateBinding = function(cmpttype, cmpt, bindto, multifields)
+    local binding = Binding()
+    binding.Type = cmpttype
+    binding.Component = cmpt
+    binding.BindTo = bindto
+    binding.MultiFields = multifields
+    return binding
+end
+
 local simple = {}
 
 simple.uirootname = "UIRoot"
@@ -36,17 +49,49 @@ function simple:init()
     canvascmpt.worldCamera = uicameracmpt
     canvascmpt.sortingLayerID = SortLayerPriority.Main
     canvas.name = "Canvas_SLID_"..tostring(SortLayerPriority.Main)
+    self.viewbinding = canvas:AddComponent(typeof(CS.XUUI.UGUIAdapter.ViewBinding))
 
     self:runApp(canvas, "myapp")
 end
 
 function simple:runApp(canvasobj, name)
-    local panel1pb = CS.Asset.Load(self.panel1, typeof(CS.UnityEngine.GameObject))
-    local panel2pb = CS.Asset.Load(self.panel2, typeof(CS.UnityEngine.GameObject))
-    CS.UnityEngine.Object.Instantiate(panel1pb, canvasobj.transform)
-    CS.UnityEngine.Object.Instantiate(panel2pb, canvasobj.transform)
+    print("runapp : "..name.." bgn ...")
+    self:initpanel1(canvasobj)
+    self:initpanel2(canvasobj)
     local app = canvasobj:AddComponent(typeof(CS.App))
-    app.appmodelname = "myapp"
+    app.appmodelname = name
+    print("runapp : "..name.." end ...")
 end
+
+function simple:initpanel1(canvasobj)
+    local panel1pb = CS.Asset.Load(self.panel1, typeof(CS.UnityEngine.GameObject))
+    local panel1obj = CS.UnityEngine.Object.Instantiate(panel1pb, canvasobj.transform)
+    local textcmpt = panel1obj.transform:Find("Tip"):GetComponent(typeof(CS.UnityEngine.UI.Text))
+    local btncmpt = panel1obj.transform:Find("Button"):GetComponent(typeof(CS.UnityEngine.UI.Button))
+    local dropdowncmpt = panel1obj.transform:Find("Dropdown"):GetComponent(typeof(CS.UnityEngine.UI.Dropdown))
+    local inputfieldcmpt = panel1obj.transform:Find("InputField"):GetComponent(typeof(CS.UnityEngine.UI.InputField))
+
+    self.viewbinding:AddBinding(CreateBinding(ComponentType.Text, textcmpt, "module1.info", false))
+    self.viewbinding:AddBinding(CreateBinding(ComponentType.Button, btncmpt, "module1.click", false))
+    self.viewbinding:AddBinding(CreateBinding(ComponentType.Dropdown, dropdowncmpt, "module1.select", false))
+    self.viewbinding:AddBinding(CreateBinding(ComponentType.InputField, inputfieldcmpt, "module1.name", false))
+    print("initpanel1 bind success ... ")
+end
+
+function simple:initpanel2(canvasobj)
+    local panel2pb = CS.Asset.Load(self.panel2, typeof(CS.UnityEngine.GameObject))
+    local panel1obj = CS.UnityEngine.Object.Instantiate(panel2pb, canvasobj.transform)
+    local textcmpt = panel1obj.transform:Find("Tip"):GetComponent(typeof(CS.UnityEngine.UI.Text))
+    local btncmpt = panel1obj.transform:Find("Button"):GetComponent(typeof(CS.UnityEngine.UI.Button))
+    local dropdowncmpt = panel1obj.transform:Find("Dropdown"):GetComponent(typeof(CS.UnityEngine.UI.Dropdown))
+    local inputfieldcmpt = panel1obj.transform:Find("InputField"):GetComponent(typeof(CS.UnityEngine.UI.InputField))
+
+    self.viewbinding:AddBinding(CreateBinding(ComponentType.Text, textcmpt, "module2.info", false))
+    self.viewbinding:AddBinding(CreateBinding(ComponentType.Button, btncmpt, "module2.click", false))
+    self.viewbinding:AddBinding(CreateBinding(ComponentType.Dropdown, dropdowncmpt, "module2.select", false))
+    self.viewbinding:AddBinding(CreateBinding(ComponentType.InputField, inputfieldcmpt, "module2.message", false))
+    print("initpanel2 bind success ... ")
+end
+
 
 return simple

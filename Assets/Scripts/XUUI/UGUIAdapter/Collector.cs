@@ -12,7 +12,7 @@ namespace XUUI.UGUIAdapter
         public static object[][] Collect(GameObject go)
         {
             var viewBinding = go.GetComponent<ViewBinding>();
-            if (viewBinding != null)
+            if (viewBinding != null && viewBinding.Bindings != null)
             {
                 return viewBinding.GetAdapters();
             }
