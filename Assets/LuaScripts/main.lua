@@ -1,9 +1,14 @@
 local breakSocketHandle, debugXpCall = require("LuaDebug")("localhost", 7003)
 
+require "common.init"
+
 local function main()
     print("hello xluaFrame ...")
     local simpleTest = require("SimpleTest")
     simpleTest:init()
+    local lst = list()
+    lst:push("1")
+    lst:push("2")
 end
 
 local function logtraceback(msg)
