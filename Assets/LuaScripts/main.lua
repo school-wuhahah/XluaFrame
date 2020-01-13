@@ -6,9 +6,7 @@ local function main()
     print("hello xluaFrame ...")
     local simpleTest = require("SimpleTest")
     simpleTest:init()
-    local lst = list()
-    lst:push("1")
-    lst:push("2")
+    local test = class("test", CS.UnityEngine.GameObject)
 end
 
 local function logtraceback(msg)

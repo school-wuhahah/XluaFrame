@@ -4,4 +4,6 @@
     author:{author}
     time:2020-01-09 16:32:35
 ]]
+require "common.oop.system"
 list = require "common.tools.list"
+stack = require "common.tools.stack"
