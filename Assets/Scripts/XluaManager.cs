@@ -28,13 +28,13 @@ public class XluaManager : MonoSingleton<XluaManager>
         LuaEnvDoString(strcontent);       
     }
 
-    private void LuaEnvDoString(string strcontent)
+    public object[] LuaEnvDoString(string strcontent)
     {
         if (Env != null)
         {
             try
             {
-                Env.DoString(strcontent);
+                return Env.DoString(strcontent);
             }
             catch (Exception ex)
             {
@@ -42,6 +42,7 @@ public class XluaManager : MonoSingleton<XluaManager>
                 Debug.LogError(msg, null);
             }
         }
+        return null;
     }
 
     private byte[] LuaScriptsLoader(ref string filepath)
