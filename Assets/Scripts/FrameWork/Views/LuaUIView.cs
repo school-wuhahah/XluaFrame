@@ -12,10 +12,9 @@ public class LuaUIView : UIBehaviour
 
     protected LuaTable scriptEnv;
     protected LuaTable metatable;
-    protected Action<MonoBehaviour> onAwake;
-    protected Action<MonoBehaviour> onEnable;
-    protected Action<MonoBehaviour> onDisable;
+
     protected Action<MonoBehaviour> onStart;
+    protected Action<MonoBehaviour> onDisable;
     protected Action<MonoBehaviour> onUpdate;
     protected Action<MonoBehaviour> onDestroy;
 
@@ -35,7 +34,8 @@ public class LuaUIView : UIBehaviour
         {
             Debug.LogError("luascriptpath is null or Empty ... ");
         }
-        object[] result = XluaManager.Instance.LuaEnvDoString(string.Format("require('{0}')", luascriptpath));
+        string scriptText = string.Format("require(\"common.oop.system\");local cls = require(\"{0}\");return extends(target,cls);", luascriptpath);
+        object[] result = XluaManager.Instance.LuaEnvDoString(scriptText, string.Format("{0}({1})", "LuaUIView", this.name), scriptEnv);
 
         if (result == null || result.Length != 1 || !(result[0] is LuaTable))
         {
@@ -43,7 +43,6 @@ public class LuaUIView : UIBehaviour
         }
 
         metatable = (LuaTable)result[0];
-        //bgn 设置变量
         if (variableArray != null && variableArray.Variables != null)
         {
             foreach (var item in variableArray.Variables)
@@ -53,38 +52,24 @@ public class LuaUIView : UIBehaviour
                 metatable.Set(name, variableArray.Get(name));
             }
         }
-        //end
-        onAwake = metatable.Get<Action<MonoBehaviour>>("awake");
-        onEnable = metatable.Get<Action<MonoBehaviour>>("enable");
+
         onDisable = metatable.Get<Action<MonoBehaviour>>("disable");
         onStart = metatable.Get<Action<MonoBehaviour>>("start");
         onUpdate = metatable.Get<Action<MonoBehaviour>>("update");
         onDestroy = metatable.Get<Action<MonoBehaviour>>("destroy");
     }
 
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
         Initialize();
-        onAwake?.Invoke(this);
-    }
-
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-        onEnable?.Invoke(this);
+        onStart?.Invoke(this);
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
         onDisable?.Invoke(this);
-    }
-
-    protected override void Start()
-    {
-        base.Start();
-        onStart?.Invoke(this);
     }
 
     protected virtual void Update()
@@ -98,9 +83,7 @@ public class LuaUIView : UIBehaviour
         onDestroy = null;
         onUpdate = null;
         onStart = null;
-        onEnable = null;
         onDisable = null;
-        onAwake = null;
 
         if (metatable != null)
         {

@@ -20,6 +20,14 @@ public class Variable
     protected VariableType variableType;
     [SerializeField]
     protected Object objvalue;
+    private List<Variable> variables;
+
+    public Variable(string name, VariableType variableType, Object objvalue)
+    {
+        this.name = name;
+        this.variableType = variableType;
+        this.objvalue = objvalue;
+    }
 
     public virtual string Name
     {
@@ -120,6 +128,15 @@ public class VariableArray
         if (variable == null)
             return null;
         return variable.GetValue();
+    }
+
+    public void AddVariable(string name, VariableType variableType, Object obj)
+    {
+        if (variables == null)
+        {
+            variables = new List<Variable>();
+        }
+        variables.Add(new Variable(name, variableType, obj));
     }
 
 }

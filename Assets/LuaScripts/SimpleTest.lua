@@ -19,8 +19,9 @@ SortLayerPriority = {
 }
 
 ComponentType = CS.XUUI.UGUIAdapter.ComponentType
-
 Binding = CS.XUUI.UGUIAdapter.Binding
+
+VariableType = CS.VariableType
 
 CreateBinding = function(cmpttype, cmpt, bindto, multifields)
     local binding = Binding()
@@ -66,31 +67,43 @@ end
 function simple:initpanel1(canvasobj)
     local panel1pb = CS.Asset.Load(self.panel1, typeof(CS.UnityEngine.GameObject))
     local panel1obj = CS.UnityEngine.Object.Instantiate(panel1pb, canvasobj.transform)
-    local textcmpt = panel1obj.transform:Find("Tip"):GetComponent(typeof(CS.UnityEngine.UI.Text))
-    local btncmpt = panel1obj.transform:Find("Button"):GetComponent(typeof(CS.UnityEngine.UI.Button))
-    local dropdowncmpt = panel1obj.transform:Find("Dropdown"):GetComponent(typeof(CS.UnityEngine.UI.Dropdown))
-    local inputfieldcmpt = panel1obj.transform:Find("InputField"):GetComponent(typeof(CS.UnityEngine.UI.InputField))
+    local panel1luaui = panel1obj:AddComponent(typeof(CS.LuaUIView))
+    panel1luaui.luascriptpath = "panel1"
 
-    self.viewbinding:AddBinding(CreateBinding(ComponentType.Text, textcmpt, "module1.info", false))
-    self.viewbinding:AddBinding(CreateBinding(ComponentType.Button, btncmpt, "module1.click", false))
-    self.viewbinding:AddBinding(CreateBinding(ComponentType.Dropdown, dropdowncmpt, "module1.select", false))
-    self.viewbinding:AddBinding(CreateBinding(ComponentType.InputField, inputfieldcmpt, "module1.name", false))
-    print("initpanel1 bind success ... ")
+    local array = CS.VariableArray()
+    local textcmpt = panel1obj.transform:Find("Tip"):GetComponent(typeof(CS.UnityEngine.UI.Text))
+    array:AddVariable("textcmpt", VariableType.Component, textcmpt)
+    local btncmpt = panel1obj.transform:Find("Button"):GetComponent(typeof(CS.UnityEngine.UI.Button))
+    array:AddVariable("btncmpt", VariableType.Component, btncmpt)
+    local dropdowncmpt = panel1obj.transform:Find("Dropdown"):GetComponent(typeof(CS.UnityEngine.UI.Dropdown))
+    array:AddVariable("dropdowncmpt", VariableType.Component, dropdowncmpt)
+    local inputfieldcmpt = panel1obj.transform:Find("InputField"):GetComponent(typeof(CS.UnityEngine.UI.InputField))
+    array:AddVariable("inputfieldcmpt", VariableType.Component, inputfieldcmpt)
+    panel1luaui.variableArray = array
+
+    local panel1 = require "panel1"
+    panel1:init(self.viewbinding)
 end
 
 function simple:initpanel2(canvasobj)
     local panel2pb = CS.Asset.Load(self.panel2, typeof(CS.UnityEngine.GameObject))
-    local panel1obj = CS.UnityEngine.Object.Instantiate(panel2pb, canvasobj.transform)
-    local textcmpt = panel1obj.transform:Find("Tip"):GetComponent(typeof(CS.UnityEngine.UI.Text))
-    local btncmpt = panel1obj.transform:Find("Button"):GetComponent(typeof(CS.UnityEngine.UI.Button))
-    local dropdowncmpt = panel1obj.transform:Find("Dropdown"):GetComponent(typeof(CS.UnityEngine.UI.Dropdown))
-    local inputfieldcmpt = panel1obj.transform:Find("InputField"):GetComponent(typeof(CS.UnityEngine.UI.InputField))
+    local panel2obj = CS.UnityEngine.Object.Instantiate(panel2pb, canvasobj.transform)
+    local panel2luaui = panel2obj:AddComponent(typeof(CS.LuaUIView))
+    panel2luaui.luascriptpath = "panel2"
 
-    self.viewbinding:AddBinding(CreateBinding(ComponentType.Text, textcmpt, "module2.info", false))
-    self.viewbinding:AddBinding(CreateBinding(ComponentType.Button, btncmpt, "module2.click", false))
-    self.viewbinding:AddBinding(CreateBinding(ComponentType.Dropdown, dropdowncmpt, "module2.select", false))
-    self.viewbinding:AddBinding(CreateBinding(ComponentType.InputField, inputfieldcmpt, "module2.message", false))
-    print("initpanel2 bind success ... ")
+    local array = CS.VariableArray()
+    local textcmpt = panel2obj.transform:Find("Tip"):GetComponent(typeof(CS.UnityEngine.UI.Text))
+    array:AddVariable("textcmpt", VariableType.Component, textcmpt)
+    local btncmpt = panel2obj.transform:Find("Button"):GetComponent(typeof(CS.UnityEngine.UI.Button))
+    array:AddVariable("btncmpt", VariableType.Component, btncmpt)
+    local dropdowncmpt = panel2obj.transform:Find("Dropdown"):GetComponent(typeof(CS.UnityEngine.UI.Dropdown))
+    array:AddVariable("dropdowncmpt", VariableType.Component, dropdowncmpt)
+    local inputfieldcmpt = panel2obj.transform:Find("InputField"):GetComponent(typeof(CS.UnityEngine.UI.InputField))
+    array:AddVariable("inputfieldcmpt", VariableType.Component, inputfieldcmpt)
+    panel2luaui.variableArray = array
+
+    local panel2 = require "panel2"
+    panel2:init(self.viewbinding)
 end
 
 

@@ -45,6 +45,24 @@ public class XluaManager : MonoSingleton<XluaManager>
         return null;
     }
 
+    public object[] LuaEnvDoString(string strcontent, string chunkName, LuaTable luaTable)
+    {
+        if (Env != null)
+        {
+            try
+            {
+                return Env.DoString(strcontent, chunkName, luaTable);
+            }
+            catch (Exception ex)
+            {
+                string msg = string.Format("XluaManager exception : {0}\n {1}", ex.Message, ex.StackTrace);
+                Debug.LogError(msg, null);
+            }
+        }
+        return null;
+    }
+
+
     private byte[] LuaScriptsLoader(ref string filepath)
     {
         filepath = filepath.Replace(".", "/") + ".lua";

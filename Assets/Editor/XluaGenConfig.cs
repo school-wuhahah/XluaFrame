@@ -81,6 +81,8 @@ public static class XluaGenConfig
                 "Launch",
                 "App",
                 "Asset",
+                "VariableArray",
+                "LuaUIView"
             };
             var unityTypes = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
                               where !(assembly.ManifestModule is System.Reflection.Emit.ModuleBuilder)
