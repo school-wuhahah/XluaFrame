@@ -4,8 +4,12 @@ require "common.init"
 
 local function main()
     print("hello xluaFrame ...")
-    local simpleTest = require("SimpleTest")
-    simpleTest:init()
+    canvas_slpy_creator:init()
+    local panel1 = require "panel1"
+    canvas_slpy_tool:adduimodelinit(sortlayerpriority.Main, "panel1", handler(panel1, panel1.init))
+    local panel2 = require "panel2"
+    canvas_slpy_tool:adduimodelinit(sortlayerpriority.Main, "panel2", handler(panel2, panel2.init))
+    canvas_slpy_tool:runuiapp(sortlayerpriority.Main, "myapp")
 end
 
 local function logtraceback(msg)

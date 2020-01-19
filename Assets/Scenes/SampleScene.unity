@@ -291,9 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3094d06bf67a90c4aa8eeea29acd2d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  variableArray:
-    variables: []
-  button: {fileID: 2067867055}
 --- !u!114 &2067867055
 MonoBehaviour:
   m_ObjectHideFlags: 0

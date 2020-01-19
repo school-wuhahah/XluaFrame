@@ -9,8 +9,8 @@ public class App : MonoBehaviour
 {
     Context context = null;
     public string appmodelname;
-    // Start is called before the first frame update
-    void Start()
+
+    public void RunApp()
     {
         if (string.IsNullOrEmpty(appmodelname))
         {

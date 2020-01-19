@@ -6,27 +6,37 @@
 ]]
 local panel1 = {}
 
-panel1.viewbinding = nil
+panel1.panelpath = "Panel1"
 
-function panel1:init(viewbinding)
-    self.viewbinding = viewbinding
-end
+panel1.luauiview = nil
+panel1.gameobj = nil
 
-function panel1:Binding()
-    if not self.viewbinding then
-        return
-    end
+function panel1:init(canvasobj, viewbinding)
 
-    self.viewbinding:AddBinding(CreateBinding(ComponentType.Text, self.textcmpt, "module1.info", false))
-    self.viewbinding:AddBinding(CreateBinding(ComponentType.Button, self.btncmpt, "module1.click", false))
-    self.viewbinding:AddBinding(CreateBinding(ComponentType.Dropdown, self.dropdowncmpt, "module1.select", false))
-    self.viewbinding:AddBinding(CreateBinding(ComponentType.InputField, self.inputfieldcmpt, "module1.name", false))
-    print("initpanel1 bind success ... ")
+    local panel1pb = loadasset(typeof(CS.UnityEngine.GameObject), self.panelpath)
+    self.gameobj = newgameobject(panel1pb, canvasobj.transform) 
+    self.luauiview = self.gameobj:AddComponent(typeof(CS.LuaUIView))
+    self.luauiview.luascriptpath = "panel1"
+
+    local array = CS.VariableArray()
+    local textcmpt = findcompent(self.gameobj.transform, "Tip", typeof(CS.UnityEngine.UI.Text))
+    array:AddVariable("textcmpt", variabletype.Component, textcmpt)
+    local btncmpt = findcompent(self.gameobj.transform, "Button", typeof(CS.UnityEngine.UI.Button))
+    array:AddVariable("btncmpt", variabletype.Component, btncmpt)
+    local dropdowncmpt = findcompent(self.gameobj.transform, "Dropdown", typeof(CS.UnityEngine.UI.Dropdown))
+    array:AddVariable("dropdowncmpt", variabletype.Component, dropdowncmpt)
+    local inputfieldcmpt = findcompent(self.gameobj.transform, "InputField", typeof(CS.UnityEngine.UI.InputField))
+    array:AddVariable("inputfieldcmpt", variabletype.Component, inputfieldcmpt)
+    self.luauiview.variableArray = array
+    
+    viewbinding:AddBinding(createbinding(componenttype.Text, textcmpt, "module1.info", false))
+    viewbinding:AddBinding(createbinding(componenttype.Button, btncmpt, "module1.click", false))
+    viewbinding:AddBinding(createbinding(componenttype.Dropdown, dropdowncmpt, "module1.select", false))
+    viewbinding:AddBinding(createbinding(componenttype.InputField, inputfieldcmpt, "module1.name", false))
 end
 
 function panel1:start()
     print("panel1 start .... ")
-    self:Binding()
 end
 
 return panel1

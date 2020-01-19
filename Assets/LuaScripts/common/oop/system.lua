@@ -143,8 +143,8 @@ function class(classname, super)
         cls.__type = 0
         cls.super = super
         cls.__index = cls
-        cls.new = function(t, ...)
-            local instance = setmetatable({}, t)
+        cls.new = function(...)
+            local instance = setmetatable({}, cls)
             instance:ctor(...)
             return instance
         end
@@ -162,6 +162,7 @@ function class(classname, super)
             cls.ctor = function(...)
             end
         end
+        return cls
     end
 end
 
